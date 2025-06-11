@@ -1,0 +1,17 @@
+.lead-delete-box {
+    width: 800px;
+    padding: 10px;
+    box-sizing: border-box;
+    border: solid 3px #c55151;
+    border-radius: 10px;
+
+    h3 {
+        margin-top: 10px;
+    }
+
+    button {
+        width: 300px;
+        background-color: #c55151;
+        color: white;
+    }
+}

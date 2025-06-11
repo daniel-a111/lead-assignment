@@ -1,0 +1,29 @@
+version: '3.8'
+
+services:
+  backend:
+    build: ./backend
+    ports:
+      - "${BACKEND_PORT}:3000"
+    environment:
+      - DATABASE_PATH=${DATABASE_PATH}
+    volumes:
+      - ./data:/app/data  # Mount host ./data to container /app/data
+      - ./backend:/app
+      - /app/node_modules
+    depends_on:
+      - frontend
+    restart: unless-stopped
+
+  frontend:
+    build: ./frontend
+    ports:
+      - "8080:5173"
+    environment:
+      - VITE_API_BASE_URL=http://localhost:3000/api/
+    volumes:
+      - ./frontend:/app
+      - /app/node_modules
+    stdin_open: true
+    tty: true
+    restart: unless-stopped
