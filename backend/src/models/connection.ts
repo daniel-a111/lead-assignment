@@ -1,6 +1,7 @@
 import { Sequelize, DataTypes } from 'sequelize';
+import { DATABASE_PATH } from '../config';
 
-export const sequelize = new Sequelize(`sqlite:data/db.sqlite`, { logging: true });
+export const sequelize = new Sequelize(`sqlite:${DATABASE_PATH}`, { logging: true });
 
 export const Lead = sequelize.define('Lead', {
   name: {

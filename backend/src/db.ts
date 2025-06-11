@@ -33,10 +33,6 @@ export const updateLead = async (id: number, lead: Partial<Lead>): Promise<Lead>
     where: { id },
     returning: true
   });
-  // if (!updatedCount) {
-  //   throw new Error(`Lead with id ${id} not found`);
-  // }
-  // return updatedLeads[0].toJSON() as Lead;
   const leadRecord = await getLeadById(id);
   if (!leadRecord) {
     throw new Error(`Lead with id ${id} not found`);
